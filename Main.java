@@ -131,6 +131,55 @@ class LinkedList{
         }
         System.out.print("null");
     }
+    
+    public Node findMid(){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    public void reverse(){
+        Node prev = null;
+        Node curr = head;
+        Node next ;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+    public boolean pallindrome(){
+        
+        Node mid = findMid();
+        
+        Node prev = null;
+        Node curr = mid;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev ;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev ;
+        Node left = head;
+        
+        while(right != null){
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+    
+    
 }
 class Main {
     public static void main(String[] args) {
@@ -142,10 +191,13 @@ class Main {
          list.addLast(50);
          list.add(2,15);
          list.print();
-         list.deleteFirst();
-         list.deleteLast();
-         list.delete(2);
-         list.print();
+        //  list.deleteFirst();
+        //  list.deleteLast();
+        //  list.delete(2);
+        //  list.print();
+        System.out.println();
+        list.reverse();
+        list.print();
         
     }
 }
