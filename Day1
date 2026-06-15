@@ -156,6 +156,7 @@ class Main {
     //     }
     //     return max_profit;
     // }
+
     public static int maxProfit(int[] arr){
         int min_price = arr[0];
         int max_profit = 0;
