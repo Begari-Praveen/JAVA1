@@ -162,11 +162,27 @@ class LinkedList{
         }
         return temp.data;
     }
-    public void set(){
-        Node temp = head ;
-        
-        
+   public void set(int index , int data){
+    if(index < 0){
+        System.out.println("Invalid Index");
+        return;
     }
+
+    int i = 0;
+    Node temp = head;
+
+    while(i < index && temp != null){
+        temp = temp.next;
+        i++;
+    }
+
+    if(temp == null){
+        System.out.println("Invalid Index");
+        return;
+    }
+
+    temp.data = data;
+}
     
 }
 class Main {
